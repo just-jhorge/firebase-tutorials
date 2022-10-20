@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase.config";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "./firebase.config";
 
 const SignIn = () => {
     const [data, setData] = useState({});
@@ -17,7 +17,7 @@ const SignIn = () => {
         console.log(auth);
         signInWithEmailAndPassword(auth, data.email, data.password)
             .then((response) => {
-                // console.log(response.user);
+                console.log(response);
                 navigate("/dashboard");
             })
             .catch((err) => alert(err.message));
